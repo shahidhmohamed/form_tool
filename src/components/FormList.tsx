@@ -2,17 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 interface FormListProps {
-  forms: { title: string; description: string; buttonText: string }[];
+  forms: { title: string }[]; // Adjusted to match the structure passed from FormDashboard
 }
 
 const FormList: React.FC<FormListProps> = ({ forms }) => {
   const navigate = useNavigate();
 
-  const handleFormClick = (form: {
-    title: string;
-    description: string;
-    buttonText: string;
-  }) => {
+  const handleFormClick = (form: { title: string }) => {
     // Navigate to the customize page with form data
     navigate(`/customize/${form.title}`, { state: form });
   };
