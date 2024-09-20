@@ -2,16 +2,16 @@ import React, { useState } from "react";
 
 interface FormCreateProps {
   onClose: () => void;
-  onAddForm: (title: string, description: string, buttonText: string) => void;
+  onAddForm: (title: string) => void;
 }
 
 const FormCreate: React.FC<FormCreateProps> = ({ onClose, onAddForm }) => {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [buttonText, setButtonText] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [buttonText, setButtonText] = useState("");
 
   const handleSubmit = () => {
-    onAddForm(title, description, buttonText);
+    onAddForm(title);
     onClose();
   };
 
@@ -23,19 +23,6 @@ const FormCreate: React.FC<FormCreateProps> = ({ onClose, onAddForm }) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
-        className="block mb-2 p-2 border border-gray-300 rounded"
-      />
-      <textarea
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="Description"
-        className="block mb-2 p-2 border border-gray-300 rounded"
-      />
-      <input
-        type="text"
-        value={buttonText}
-        onChange={(e) => setButtonText(e.target.value)}
-        placeholder="Button Text"
         className="block mb-2 p-2 border border-gray-300 rounded"
       />
       <button
