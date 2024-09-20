@@ -4,12 +4,12 @@ import FormCreate from "./FormCreate";
 
 const FormDashboard: React.FC = () => {
   const [forms, setForms] = useState<
-    { title: string; description: string; buttonText: string }[]
+    { title: string; }[]
   >([]);
   const [showFormCreate, setShowFormCreate] = useState(false);
 
-  const addForm = (title: string, description: string, buttonText: string) => {
-    setForms([...forms, { title, description, buttonText }]);
+  const addForm = (title: string) => {
+    setForms([...forms, { title}]);
   };
 
   return (
